@@ -3,6 +3,7 @@ import ee
 import threading
 import random
 import requests
+import os
 
 from time import time, sleep
 
@@ -11,7 +12,7 @@ from landdegradation.schemas.schemas import CloudResults, CloudResultsSchema, Ur
 
 
 # Google cloud storage bucket for output
-BUCKET = "ldmt"
+BUCKET = os.getenv("GOOGLE_STORAGE_BUCKET","ldmt")
 
 # Number of minutes a GEE task is allowed to run before timing out and being 
 # cancelled
