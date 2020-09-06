@@ -91,6 +91,7 @@ class gee_task(threading.Thread):
 
     def get_urls(self):
         resp = requests.get('https://www.googleapis.com/storage/v1/b/{bucket}/o?prefix={prefix}'.format(bucket=BUCKET, prefix=self.prefix))
+        print(resp)
         if not resp or resp.status_code != 200:
             raise GEETaskFailure('Failed to list urls for results from {}'.format(self.task))
 
